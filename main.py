@@ -24,9 +24,12 @@ def remove_duplicates_from_list(items):
 if __name__ == "__main__":
     filename = DEFAULT_FILENAME
     remove_duplicates = DEFAULT_DUPLICATES
-    if len(sys.argv) == 3:
+    order=""
+    if len(sys.argv) >= 3:
         filename = sys.argv[1]
         remove_duplicates = sys.argv[2].lower() == "yes"
+        if(len(sys.argv)>3):
+            order=sys.argv[3]
     else:
         print("Se debe indicar el fichero como primer argumento")
         print("El segundo argumento indica si se quieren eliminar duplicados")
@@ -49,4 +52,7 @@ if __name__ == "__main__":
     else:
         print(word_list)
 
-    
+    if(order!=""):
+        print(sort_list(word_list,order))
+    else:
+        print("The third argument indicates whether you want to sort words 'asc' or 'des' but the parameter is not defined.") #= print("El tercer argumento indica si se quiere ordenar palabras 'asc' o 'des' pero no esta el parametro definido")
